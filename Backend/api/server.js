@@ -8,7 +8,7 @@ require('dotenv').config(); // Load environment variables from .env file
 const app = express();
 app.use(bodyParser.json());
 app.use(cors({
-    origin: 'https://enlightened-sage-ico7vf0ss-gurpartap-singhs-projects-1e68b36d.vercel.app', // Replace with your Netlify URL
+    origin: 'https://enlightenedsage.netlify.app', // Replace with your Netlify URL
 }));
 
 // Connect to MongoDB
