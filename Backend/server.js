@@ -7,8 +7,9 @@ require('dotenv').config(); // Load environment variables from .env file
 
 const app = express();
 app.use(bodyParser.json());
-app.use(cors());
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/enlightened'; // Use environment variable or default to local MongoDB
+app.use(cors({
+    origin: 'https://enlightenedsage.netlify.app', // Replace with your Netlify URL
+}));
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, {
@@ -117,8 +118,12 @@ app.post('/submit-review', async (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+// Remove this section:
+// const PORT = process.env.PORT || 3000;
+// app.listen(PORT, () => {
+//     console.log(`Server is running on http://localhost:${PORT}`);
+// });
+
+// Add this instead:
+module.exports = app;
 
